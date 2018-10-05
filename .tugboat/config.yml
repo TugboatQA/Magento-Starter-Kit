@@ -8,6 +8,7 @@ services:
       init:
         - docker-php-ext-install opcache
         - docker-php-ext-install bcmath
+        - docker-php-ext-install intl
         - a2enmod headers rewrite
         
       build:
