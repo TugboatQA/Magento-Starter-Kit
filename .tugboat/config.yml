@@ -7,6 +7,7 @@ services:
     commands:
       init:
         - docker-php-ext-install opcache
+        - docker-php-ext-install bcmath
         - a2enmod headers rewrite
         
       build:
