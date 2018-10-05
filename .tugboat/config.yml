@@ -13,6 +13,8 @@ services:
         - sed -n 's/MAGENTO_USER/'"${MAGENTO_USER}"'/' auth.json
         - sed -n 's/MAGENTO_PASS/'"${MAGENTO_PASS}"'/' auth.json
         - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
+        
+        - composer create-project --repository=https://repo.magento.com/ magento/project-community-edition magento
     
   mysql:
     image: tugboatqa/mysql:5
