@@ -27,6 +27,11 @@ services:
         - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
         
         - composer create-project --repository=https://repo.magento.com/ magento/project-community-edition magento
+        
+        # cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+        # cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+        # cd ${TUGBOAT_ROOT}/magento && chown -R :www-data . // Ubuntu
+        # cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
     
   mysql:
     image: tugboatqa/mysql:5
