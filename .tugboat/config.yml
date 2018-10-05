@@ -11,6 +11,7 @@ services:
         - a2enmod headers rewrite
         
       build:
+        # sed -i makes a backup file. I don't like that
         - sed -in "s/MAGENTO_USER/${MAGENTO_USER}/" ${TUGBOAT_ROOT}/auth.json
         - sed -in "s/MAGENTO_PASS/${MAGENTO_PASS}/" ${TUGBOAT_ROOT}/auth.json
         - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
