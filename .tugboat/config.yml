@@ -12,7 +12,7 @@ services:
       build:
         - sed -n 's/MAGENTO_USER/'"${MAGENTO_USER}"'/' ${TUGBOAT_ROOT}/auth.json
         - sed -n 's/MAGENTO_PASS/'"${MAGENTO_PASS}"'/' ${TUGBOAT_ROOT}/auth.json
-        # - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
+        - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
         
         - composer create-project --repository=https://repo.magento.com/ magento/project-community-edition magento
     
