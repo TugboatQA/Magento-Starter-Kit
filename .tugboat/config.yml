@@ -1,0 +1,13 @@
+services:
+  php:
+    image: tugboatqa/php:7-apache
+    default: true
+    depends: mysql
+    
+    commands:
+      init:
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
+    
+  mysql:
+    image: tugboatqa/mysql:5
