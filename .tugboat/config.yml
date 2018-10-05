@@ -13,6 +13,9 @@ services:
         - docker-php-ext-install intl
         - apt-get install -y libxslt-dev
         - docker-php-ext-install xsl
+        - apt-get install -y libzip-dev
+        - pecl install zip
+        - docker-php-ext-enable zip
         - a2enmod headers rewrite
         
       build:
