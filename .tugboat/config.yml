@@ -10,6 +10,8 @@ services:
         - a2enmod headers rewrite
         
       build:
+        - sed 's/MAGENTO_USER/'"${MAGENTO_USER}"'/' auth.json
+        sed 's/MAGENTO_USER/'"${MAGENTO_PASS}"'/' auth.json
         - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
     
   mysql:
