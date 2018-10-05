@@ -10,7 +10,7 @@ services:
         - a2enmod headers rewrite
         
       build:
-        - mv auth.json /root/.composer/
+        - mv ${TUGBOAT_ROOT}/auth.json /root/.composer/
     
   mysql:
     image: tugboatqa/mysql:5
