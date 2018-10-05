@@ -8,6 +8,9 @@ services:
       init:
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
+        
+      build:
+        - mv auth.json /root/.composer/
     
   mysql:
     image: tugboatqa/mysql:5
