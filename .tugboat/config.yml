@@ -43,7 +43,7 @@ services:
           \--backend-frontname=admin 
           \--admin-firstname=admin 
           \--admin-lastname=admin 
-          \--admin-email=root@localhost 
+          \--admin-email=root@localhost.com
           \--admin-user=admin 
           \--admin-password=admin123 
           \--language=en_US 
