@@ -20,7 +20,6 @@ services:
         - docker-php-ext-install soap
         - a2enmod headers rewrite
         
-      build:
         # sed -i makes a backup file. I don't like that
         - sed -in "s/MAGENTO_USER/${MAGENTO_USER}/" ${TUGBOAT_ROOT}/auth.json
         - sed -in "s/MAGENTO_PASS/${MAGENTO_PASS}/" ${TUGBOAT_ROOT}/auth.json
@@ -34,6 +33,7 @@ services:
         - cd ${TUGBOAT_ROOT}/magento && chown -R :www-data . 
         - cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
         
+      build:       
         # Install Magento
         - ${TUGBOAT_ROOT}/magento/bin/magento setup:install 
           \--db-host=mysql 
