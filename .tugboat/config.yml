@@ -29,10 +29,10 @@ services:
         - composer create-project --repository=https://repo.magento.com/ magento/project-community-edition magento
         
         # Set File Permissions
-        cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
-        cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
-        cd ${TUGBOAT_ROOT}/magento && chown -R :www-data . 
-        cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
+        - cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+        - cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+        - cd ${TUGBOAT_ROOT}/magento && chown -R :www-data . 
+        - cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
         
         # Install Magento
         - ${TUGBOAT_ROOT}/bin/magento setup:install \
