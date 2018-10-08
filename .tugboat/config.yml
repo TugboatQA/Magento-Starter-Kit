@@ -34,24 +34,7 @@ services:
         - cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
         
       build:       
-        # Install Magento
-        - ${TUGBOAT_ROOT}/magento/bin/magento setup:install 
-          \--db-host=mysql 
-          \--db-name=tugboat
-          \--db-user=tugboat 
-          \--db-password=tugboat 
-          \--backend-frontname=admin 
-          \--admin-firstname=admin 
-          \--admin-lastname=admin 
-          \--admin-email=root@localhost 
-          \--admin-user=admin 
-          \--admin-password=admin123 
-          \--language=en_US 
-          \--currency=USD 
-          \--timezone=America/Chicago 
-          \--use-rewrites=1
-          
-        - ln -snf "${TUGBOAT_ROOT}/magento/magento2ee" "${DOCROOT}"
+        
     
   mysql:
     image: tugboatqa/mysql:5
