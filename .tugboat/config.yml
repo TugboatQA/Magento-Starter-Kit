@@ -50,6 +50,8 @@ services:
           \--currency=USD \
           \--timezone=America/Chicago \
           \--use-rewrites=1
+          
+        - ln -snf "${TUGBOAT_ROOT}/magento/magento2ee" "${DOCROOT}"
     
   mysql:
     image: tugboatqa/mysql:5
