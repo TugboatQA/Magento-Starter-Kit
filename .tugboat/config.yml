@@ -28,10 +28,28 @@ services:
         
         - composer create-project --repository=https://repo.magento.com/ magento/project-community-edition magento
         
-        # cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
-        # cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
-        # cd ${TUGBOAT_ROOT}/magento && chown -R :www-data . // Ubuntu
-        # cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
+        # Set File Permissions
+        cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
+        cd ${TUGBOAT_ROOT}/magento && find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
+        cd ${TUGBOAT_ROOT}/magento && chown -R :www-data . 
+        cd ${TUGBOAT_ROOT}/magento && chmod u+x bin/magento
+        
+        # Install Magento
+        - ${TUGBOAT_ROOT}/bin/magento setup:install \
+          \--db-host=mysql \
+          \--db-name=tugboat \
+          \--db-user=tugboat \
+          \--db-password=tugboat \
+          \--backend-frontname=admin \
+          \--admin-firstname=admin \
+          \--admin-lastname=admin \
+          \--admin-email=root@localhost \
+          \--admin-user=admin \
+          \--admin-password=admin123 \
+          \--language=en_US \
+          \--currency=USD \
+          \--timezone=America/Chicago \
+          \--use-rewrites=1
     
   mysql:
     image: tugboatqa/mysql:5
