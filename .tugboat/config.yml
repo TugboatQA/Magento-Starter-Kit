@@ -36,6 +36,7 @@ services:
       build:
         # Install Magento
         - ${TUGBOAT_ROOT}/magento/bin/magento setup:install 
+          \--base-url=http://localhost/magento/
           \--db-host=mysql 
           \--db-name=tugboat
           \--db-user=tugboat 
